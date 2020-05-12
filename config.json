@@ -1,0 +1,32 @@
+{
+  "issueTypes": [
+    "Feature",
+    "Bug",
+    "Defect"
+  ],
+  "contributors": [
+    {
+      "name": "keen4e",
+      "value": "bugra",
+      "checked": true
+    },
+    {
+      "name": "Ekrem",
+      "value": "ekrem"
+    },
+    {
+      "name": "Ahmet",
+      "value": "ahmet"
+    },
+    {
+      "name": "Volkan",
+      "value": "volkan"
+    }
+  ],
+  "preIssueKey": "hm",
+  "msgCharCount": {
+    "min": 8,
+    "max": 72
+  },
+  "lastIssueKey": "hm-126"
+}

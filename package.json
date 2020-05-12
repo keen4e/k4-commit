@@ -1,0 +1,19 @@
+{
+  "name": "k4-commit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "bin": "./app.js",
+  "pkg": {
+    "assets": "./config.json"
+  },
+  "author": "Bugra Albayrak",
+  "license": "ISC",
+  "dependencies": {
+    "chalk-pipe": "^4.0.0",
+    "inquirer": "^7.1.0"
+  }
+}
