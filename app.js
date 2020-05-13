@@ -1,5 +1,6 @@
 'use strict';
 
+const os = require('os');
 const inquirer = require('inquirer');
 const {exec} = require('child_process');
 
@@ -8,7 +9,14 @@ const warning = chalkPipe('orange');
 
 const fs = require('fs');
 const path = require('path');
-const configFile = fs.readFileSync(path.resolve(__dirname, './config.json'));
+const baseConfigFilePath = fs.readFileSync(path.resolve(__dirname, './config.json'));
+const configFilePath = path.resolve(`${os.homedir()}/.k4-commit.config`);
+
+if (!fs.existsSync(configFilePath)) {
+    fs.writeFileSync(configFilePath, baseConfigFilePath);
+}
+
+const configFile = fs.readFileSync(configFilePath);
 const config = JSON.parse(configFile);
 
 inquirer
@@ -85,7 +93,7 @@ inquirer
         }).then(answer => {
             if (answer.confirm) {
                 const data = JSON.stringify(config);
-                fs.writeFileSync('./config.json', data);
+                fs.writeFileSync(configFilePath, data);
                 exec(`git commit -m "${commitMessage}"`, (error, stdout, stderr) => {
                     if (error) {
                         console.log(error.message);
