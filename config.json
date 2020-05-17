@@ -23,6 +23,7 @@
       "value": "volkan"
     }
   ],
+  "commitMessage": "[$issueType][$issueKey][$contributors(/)] $message",
   "preIssueKey": "hm",
   "msgCharCount": {
     "min": 8,

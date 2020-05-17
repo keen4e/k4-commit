@@ -79,7 +79,12 @@ inquirer
     ])
     .then(answers => {
         config.lastIssueKey = answers.key;
-        const commitMessage = `[${answers.type}][${answers.key}][${answers.contributors.join('/')}] ${answers.message}`
+        const contributors = config.commitMessage.match(/\$contributors\((.*)\)/);
+        const commitMessage = config.commitMessage
+            .replace('$issueType', answers.type)
+            .replace('$issueKey', answers.key)
+            .replace('$message', answers.message)
+            .replace(contributors[0], answers.contributors.join(contributors[1]));
         console.log(warning(`\n ${commitMessage}\n`));
         return commitMessage
     })

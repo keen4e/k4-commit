@@ -2,6 +2,9 @@
 customize config.json file before create an executable file
 
 ````
+npm install
+````
+````
 npm install -g pkg
 ````
 ````
